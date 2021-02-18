@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MainList({ list }) {
-  console.log(list);
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -35,15 +34,5 @@ function MainList({ list }) {
     </div>
   );
 }
-
-MainList.propTypes = {
-  title: PropTypes.string.isRequired,
-  post: PropTypes.string.isRequired,
-};
-
-MainList.defaultProps = {
-  title: "title",
-  post: "post",
-};
 
 export default MainList;

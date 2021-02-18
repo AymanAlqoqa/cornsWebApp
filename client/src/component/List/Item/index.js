@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Item({ item }) {
-  const { nickname , avatar } = item;
+  const { nickname, avatar, owner } = item;
   console.log(nickname);
   const classes = useStyles();
   return (
@@ -33,13 +33,13 @@ function Item({ item }) {
         </ListItemAvatar>
         <ListItemText
           primary={nickname}
-          // secondary={
-          //   <>
-          //     <Typography component="span" className={classes.inline}>
-          //       {post}
-          //     </Typography>
-          //   </>
-          // }
+          secondary={
+            <>
+              <Typography component="span" className={classes.inline}>
+                Owner: {owner}
+              </Typography>
+            </>
+          }
         />
       </ListItem>
     </List>
@@ -48,15 +48,18 @@ function Item({ item }) {
 
 Item.propTypes = {
   item: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    post: PropTypes.string.isRequired,
+    nickname: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    owner: PropTypes.string.isRequired,
   }),
 };
 
 Item.defaultProps = {
   item: {
-    title: "title",
-    post: "post",
+    nickname: "title",
+    avatar:
+      "https://www.quirkbooks.com/sites/default/files/styles/blog_detail_featured_image/public/editor_uploads/original/unicorn.jpg?itok=qas6sjwq",
+    owner: "avatar",
   },
 };
 
